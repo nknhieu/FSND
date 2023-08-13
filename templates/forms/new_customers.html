@@ -1,0 +1,30 @@
+{% extends 'layouts/main.html' %}
+{% block title %}New Customer{% endblock %}
+{% block content %}
+  <div class="form-wrapper">
+    <form method="post" class="form">
+      <h3 class="form-heading">List a new customer</h3>
+      <div class="form-group">
+        <label for="firstname">First Name</label>
+        {{ form.firstname(class_ = 'form-control', autofocus = true) }}
+      </div>
+      <div class="form-group">
+        <label for="lastname">Last Name</label>
+        {{ form.lastname(class_ = 'form-control') }}
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        {{ form.email(class_ = 'form-control') }}
+      </div>
+      <div class="form-group">
+          <label for="phone">Phone</label>
+          {{ form.phone(class_ = 'form-control', placeholder='xxx-xxx-xxxx') }}
+        </div>
+      <div class="form-group">
+          <label for="address">Address</label>
+          {{ form.address(class_ = 'form-control') }}
+        </div>
+      <input type="submit" value="Create Customer" class="btn btn-primary btn-lg btn-block">
+    </form>
+  </div>
+{% endblock %}

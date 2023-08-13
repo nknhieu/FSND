@@ -1,0 +1,32 @@
+{% extends 'layouts/main.html' %}
+{% block title %}New Rental Listing{% endblock %}
+{% block content %}
+  <div class="form-wrapper">
+    <form method="post" class="form">
+      <h3 class="form-heading">List a new rental</h3>
+      <div class="form-group">
+        <label for="vehicle_id">Vehicle ID</label>
+        <small>ID can be found on the Vehicle's Page</small>
+        {{ form.vehicle_id(class_ = 'form-control', autofocus = true) }}
+      </div>
+      <div class="form-group">
+        <label for="customer_id">Customer ID</label>
+        <small>ID can be found on the Customer's Page</small>
+        {{ form.customer_id(class_ = 'form-control', autofocus = true) }}
+      </div>
+      <div class="form-group">
+          <label for="rentaldate">Rental Date</label>
+          {{ form.rentaldate(class_ = 'form-control', placeholder='YYYY-MM-DD HH:MM', autofocus = true) }}
+        </div>
+      <div class="form-group">
+          <label for="returndate">Return Date</label>
+          {{ form.returndate(class_ = 'form-control', placeholder='YYYY-MM-DD HH:MM', autofocus = true) }}
+        </div>
+      <div class="form-group">
+          <label for="totalcost">Total Cost</label>
+          {{ form.totalcost(class_ = 'form-control', autofocus = true) }}
+        </div>
+      <input type="submit" value="Create Rental" class="btn btn-primary btn-lg btn-block">
+    </form>
+  </div>
+{% endblock %}

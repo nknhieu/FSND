@@ -1,0 +1,23 @@
+{% extends 'layouts/main.html' %}
+{% block title %}Fyyur | Vehicles{% endblock %}
+{% block content %}
+<ul class="items">
+    {% for vehicle in vehicles %}
+    <li id="{{ vehicle.id }}" style="display: flex;">
+        <a href="/vehicles/{{ vehicle.id }}">
+            <i class="fas fa-car"></i>
+            <div class="item">
+                <h5>Vehicle ID: {{ vehicle.id }}</h5>
+                <p>Brand: {{ vehicle.brand }}</p>
+                <p>Model: {{ vehicle.model }}</p>
+                <p>Year: {{ vehicle.year }}</p>
+                <p>Color: {{ vehicle.color }}</p>
+                <p>Phone: {{ vehicle.phone }}</p>
+                <p>Rental Price: {{ vehicle.rentalprice }}</p>
+            </div>
+        </a>
+        <button style="background-color: transparent; margin-left: 20px; height: 30px;" onclick="deleteVehicle(`{{ vehicle.id }}`)">&cross;</button>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

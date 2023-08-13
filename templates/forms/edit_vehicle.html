@@ -1,0 +1,34 @@
+{% extends 'layouts/main.html' %}
+{% block title %}Edit Vehicle{% endblock %}
+{% block content %}
+  <div class="form-wrapper">
+    <form class="form" method="post" action="/vehicles/{{vehicle.id}}/edit">
+      <h3 class="form-heading">Edit vehicle <em>{{ vehicle.brand }} {{ vehicle.model }}</em> <a href="{{ url_for('index') }}" title="Back to homepage"><i class="fa fa-home pull-right"></i></a></h3>
+      <div class="form-group">
+        <label for="brand">Brand</label>
+        {{ form.brand(class_ = 'form-control', autofocus = true) }}
+      </div>
+      <div class="form-group">
+        <label for="model">Model</label>
+        {{ form.model(class_ = 'form-control') }}
+      </div>
+      <div class="form-group">
+        <label for="year">Year</label>
+        {{ form.year(class_ = 'form-control') }}
+      </div>
+      <div class="form-group">
+        <label for="color">Color</label>
+        {{ form.color(class_ = 'form-control') }}
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone</label>
+        {{ form.phone(class_ = 'form-control', placeholder='xxx-xxx-xxxx') }}
+      </div>
+      <div class="form-group">
+        <label for="rentalprice">Rental Price</label>
+        {{ form.rentalprice(class_ = 'form-control', placeholder='Rental Price', autofocus = true) }}
+      </div>
+      <input type="submit" value="Edit Vehicle" class="btn btn-primary btn-lg btn-block">
+    </form>
+  </div>
+{% endblock %}

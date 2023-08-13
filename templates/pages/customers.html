@@ -1,0 +1,19 @@
+{% extends 'layouts/main.html' %}
+{% block title %}Fyyur | Customers{% endblock %}
+{% block content %}
+<ul class="items">
+    {% for customer in customers %}
+    <li>
+        <a href="/customers/{{ customer.id }}">
+            <i class="fas fa-user"></i>
+            <div class="item">
+                <h5>{{ customer.firstname }} {{ customer.lastname }}</h5>
+                <p>Email: {{ customer.email }}</p>
+                <p>Phone: {{ customer.phone }}</p>
+                <p>Address: {{ customer.address }}</p>
+            </div>
+        </a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

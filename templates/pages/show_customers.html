@@ -1,0 +1,26 @@
+{% extends 'layouts/main.html' %}
+{% block title %}{{ customer.firstname }} {{ customer.lastname }} | Customer{% endblock %}
+{% block content %}
+<div class="row">
+	<div class="col-sm-6">
+		<h1 class="monospace">
+			{{ customer.firstname }} {{ customer.lastname }}
+		</h1>
+		<p class="subtitle">
+			ID: {{ customer.id }}
+		</p>
+		<p>
+			<i class="fas fa-envelope"></i> {{ customer.email }}
+		</p>
+		<p>
+			<i class="fas fa-phone-alt"></i> {% if customer.phone %}{{ customer.phone }}{% else %}No Phone{% endif %}
+		</p>
+		<p>
+			<i class="fas fa-map-marker-alt"></i> {% if customer.address %}{{ customer.address }}{% else %}No Address{% endif %}
+		</p>
+	</div>
+</div>
+
+<a href="/customers/{{ customer.id }}/edit"><button class="btn btn-primary btn-lg">Edit</button></a>
+
+{% endblock %}

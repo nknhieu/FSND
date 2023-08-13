@@ -1,0 +1,20 @@
+{% extends 'layouts/main.html' %}
+{% block title %}Fyyur | Vehicles Search{% endblock %}
+{% block content %}
+<h3>Number of search results for "{{ search_term }}": {{ results.count }}</h3>
+<ul class="items">
+	{% for vehicle in results.data %}
+	<li>
+		<a href="/vehicles/{{ vehicle.id }}">
+			<i class="fas fa-car"></i>
+			<div class="item">
+				<h5>Vehicle ID: {{ vehicle.id }}</h5>
+				<p>Model: {{ vehicle.model }}</p>
+				<p>Year: {{ vehicle.year }}</p>
+				<!-- Add more fields as needed -->
+			</div>
+		</a>
+	</li>
+	{% endfor %}
+</ul>
+{% endblock %}

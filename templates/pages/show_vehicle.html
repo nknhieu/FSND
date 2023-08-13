@@ -1,0 +1,41 @@
+{% extends 'layouts/main.html' %}
+{% block title %}Vehicle Information{% endblock %}
+{% block content %}
+<div class="row">
+	<div class="col-sm-6">
+		<h1 class="monospace">
+			{{ vehicle.name }}
+		</h1>
+		<p class="subtitle">
+			ID: {{ vehicle.id }}
+		</p>
+		<div class="info">
+			<p>Brand: {{ vehicle.brand }}</p>
+			<p>Model: {{ vehicle.model }}</p>
+			<p>Year: {{ vehicle.year }}</p>
+			<p>Color: {{ vehicle.color }}</p>
+			<p>Price: {{ vehicle.price }}</p>
+		</div>
+	</div>
+	<div class="col-sm-6">
+		<img src="{{ vehicle.image_link }}" alt="Vehicle Image" />
+	</div>
+</div>
+<section>
+	<h2 class="monospace">{{ vehicle.features_count }} Features</h2>
+	<ul class="features-list">
+		{% for feature in vehicle.features %}
+		<li>{{ feature }}</li>
+		{% endfor %}
+	</ul>
+</section>
+
+<a href="/vehicles/{{ vehicle.id }}/edit"><button class="btn btn-primary btn-lg">Edit</button></a>
+<!-- <div class="row">
+	<form class="col-sm-6" action="/vehicles/delete" method="POST">
+		<input type="submit" value="Delete Vehicle" class="btn btn-primary btn-lg">
+		<input type='text' name="vehicle_id" value={{vehicle.id}} style="display: none;">
+	</form>
+</div> -->
+
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'layouts/main.html' %}
+{% block title %}Rental List{% endblock %}
+{% block content %}
+<ul class="items">
+    {% for rental in rentals %}
+    <li>
+        <div class="item">
+            <h5>Rental ID: {{ rental.rental_id }}</h5>
+            <p>Vehicle ID: {{ rental.vehicle_id }}</p>
+            <p>Customer ID: {{ rental.customer_id }}</p>
+            <p>Rental Date: {{ rental.rentaldate }}</p>
+            <p>Return Date: {{ rental.returndate }}</p>
+            <p>Total Cost: {{ rental.totalcost }}</p>
+        </div>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
